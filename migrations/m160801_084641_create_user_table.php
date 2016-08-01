@@ -11,13 +11,12 @@ class m160801_084641_create_user_table extends Migration
     public function safeUp()
     {
 		$this->createTable('user',[
-			'id'=>$this->integer(11)->notNull(),
+			'id'=>$this->bigPrimaryKey(),
 			'username' =>$this->string(45)->notNull(),
 			'email'=>$this->string(60)->notNull(),
 			'pass'=>$this->string(64)->notNull(),
 			'type' => "enum('public','author','admin') NOT NULL",
 			'date_entered'=>'TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
-			'PRIMARY KEY(id)',
 			'UNIQUE INDEX username (username ASC)',
 			'UNIQUE INDEX email (email ASC)'
 		]);
